@@ -15,15 +15,15 @@ public class LoginController {
         return "hello " + nickname + a;
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(User user) {
-        return "post请求1111";
-    }
+//    @RequestMapping(value = "/register", method = RequestMethod.POST)
+//    public String register(User user) {
+//        return "post请求1111";
+//    }
 
-    @RequestMapping(value = "/register2", method = RequestMethod.POST)
-    public String register2(@RequestBody User user) {
-//        接收json数据时需要增加 @RequestBody注解
-        System.out.println(user);
-        return "user111";
-    }
+//    @RequestMapping(value = "/register2", method = RequestMethod.POST)
+//    public String register2(@RequestBody User user) {
+////        接收json数据时需要增加 @RequestBody注解
+//        System.out.println(user);
+//        return "user111";
+//    }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.muhuck.forum.mapper.UserMapper">
+    <resultMap id="userResultMap" type="com.muhuck.forum.entity.User">
+        <id column="userid" property="userid"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nickname" property="nickname"/>
+        <result column="age" property="age"/>
+        <result column="email" property="email"/>
+        <result column="birthday" property="birthday"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.muhuck.forum.entity.User">
+        insert into `user` (username, password, nickname, age, email, birthday)
+        values (#{username}, #{password}, #{nickname}, #{age}, #{email}, #{birthday})
+    </insert>
+
+    <update id="update" parameterType="com.muhuck.forum.entity.User">
+        update `user`
+        set password=#{password}
+        where userid = #{userid}
+    </update>
+
+    <select id="getById" resultMap="userResultMap">
+        select *
+        from `user`
+        where userid = #{userid}
+    </select>
+
+    <select id="getByUsername" resultMap="userResultMap">
+        select *
+        from `user`
+        where username = #{username}
+    </select>
+</mapper>

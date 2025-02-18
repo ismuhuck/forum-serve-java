@@ -2,15 +2,19 @@ package com.muhuck.forum.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import jakarta.validation.constraints.NotEmpty;
 
 public class User {
     @TableId(type = IdType.AUTO)
     private int userid;
+//    @NotEmpty(message = "昵称不能为空！")
     private String nickname;
     private int age;
+    @NotEmpty(message = "用户名不能为空！")
     private String username;
     private String birthday;
     private String email;
+    private String password;
 // command + N 快速生成 setter和getter
     @Override
     public String toString() {
@@ -69,5 +73,13 @@ public class User {
 
     public void setUserid(int userid) {
         this.userid = userid;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
